@@ -1,0 +1,1 @@
+from urlshorter.datalayer import mocked_datalayer
