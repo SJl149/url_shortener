@@ -1,6 +1,8 @@
+import helpers
+
 from urlshorter.datalayer.mocked_datalayer import MockedDatalayer
 from urlshorter.shortener.urlshorter_engine import URLShorterEngine
-import helpers
+
 
 def add_url(engine: URLShorterEngine) -> None:
     long_url, custom_key = helpers.enter_new_url()
@@ -25,6 +27,7 @@ def find_long_url(engine: URLShorterEngine) -> None:
     else:
         print(f"Could not find URL with key: {key}")
 
+
 def get_stats(engine: URLShorterEngine) -> None:
     key = helpers.enter_short_url_key()
     response = engine.get_clicked_stats(key)
@@ -33,6 +36,7 @@ def get_stats(engine: URLShorterEngine) -> None:
     else:
         print(f"     Could not find short url: urlshorter/{key}")
 
+
 def delete_url(engine: URLShorterEngine):
     key = helpers.enter_short_url_key()
     response = engine.delete_url(key)
@@ -40,7 +44,7 @@ def delete_url(engine: URLShorterEngine):
         print(f"urlshorter/{key} was deleted successfully!")
     else:
         print(f"There was a problem deleting urlshorter/{key}")
-    
+
 
 def menu_actions(action: str, engine: URLShorterEngine):
     if action == "1":
@@ -49,11 +53,12 @@ def menu_actions(action: str, engine: URLShorterEngine):
         find_long_url(engine)
     elif action == "3":
         get_stats(engine)
-    elif  action == "4":
+    elif action == "4":
         delete_url(engine)
     else:
         helpers.quit_program()
-    
+
+
 if __name__ == "__main__":
     helpers.greeting()
     cont = True
@@ -65,6 +70,5 @@ if __name__ == "__main__":
         action = helpers.get_menu_choice()
         menu_actions(action, engine)
         cont = helpers.ask_to_continue()
-    
+
     helpers.quit_program()
-            
