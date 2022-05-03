@@ -1,7 +1,8 @@
-from urlshorter.datalayer.interface import DataLayer
-import string
 import random
+import string
 from typing import Optional
+
+from urlshorter.datalayer.interface import DataLayer
 
 
 class URLShorterEngine:

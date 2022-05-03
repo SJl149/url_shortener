@@ -1,29 +1,3 @@
-import pytest
-
-from urlshorter.datalayer.mocked_datalayer import MockedDatalayer
-
-
-@pytest.fixture
-def key():
-    return "abc123"
-
-
-@pytest.fixture
-def long_url():
-    return "www.myverylongcompanyname.com"
-
-
-@pytest.fixture(scope="function")
-def mocked_datalayer():
-    return MockedDatalayer()
-
-
-@pytest.fixture(scope="function")
-def mocked_datalayer_with_entry(mocked_datalayer, key, long_url):
-    mocked_datalayer.create(key, long_url)
-    return mocked_datalayer
-
-
 def test_initialize_mocked_datalayer(mocked_datalayer):
     assert len(mocked_datalayer.db) == 0, "MockedDatalayer failed to initialize an empty dict"
 

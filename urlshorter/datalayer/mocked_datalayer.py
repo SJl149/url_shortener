@@ -1,5 +1,6 @@
+from typing import Optional, Union
+
 from .interface import DataLayer
-from typing import Union, Optional
 
 
 class MockedDatalayer(DataLayer):
