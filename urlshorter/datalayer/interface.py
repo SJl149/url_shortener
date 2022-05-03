@@ -18,21 +18,21 @@ class DataLayer(metaclass=abc.ABCMeta):
         )
 
     @abc.abstractclassmethod
-    def get(self, short_url: str) -> dict:
+    def get(self, key: str) -> dict:
         """Get full url and data by shortened url"""
         raise NotImplementedError
 
     @abc.abstractclassmethod
-    def delete(self, short_url: str) -> bool:
+    def delete(self, key: str) -> bool:
         """Delete full url and data for shortened url"""
         raise NotImplementedError
 
     @abc.abstractclassmethod
-    def update(self, short_url: str, datafield: str, data: Union[str, int]) -> bool:
+    def update(self, key: str, datafield: str, data: Union[str, int]) -> bool:
         """Updates full url data by shortened url"""
         raise NotImplementedError
 
     @abc.abstractclassmethod
-    def create(self, short_url: str, long_url: str) -> bool:
+    def create(self, key: str, long_url: str) -> bool:
         """Creates a new entry by short url"""
         raise NotImplementedError
